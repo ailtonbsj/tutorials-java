@@ -21,4 +21,10 @@ public class ClientsManager {
     public boolean removeClientById(Long id) {
         return bankClients.removeIf(client -> client.getId() == id);
     }
+
+    public boolean validateAge(Integer age) throws AgeNotAllowedException{
+        if(age < 18 || age > 65)
+            throw new AgeNotAllowedException(AgeNotAllowedException.MESSAGE);
+        return true;
+    }
 }
